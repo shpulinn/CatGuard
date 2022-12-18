@@ -6,6 +6,7 @@ public class PlayerMoveController : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotationSpeed;
 
     [SerializeField] private Animator _animator;
 
@@ -29,7 +30,7 @@ public class PlayerMoveController : MonoBehaviour
 
         if (horizontalInput != 0)
         {
-            transform.Rotate(new Vector3(0, horizontalInput, 0));
+            transform.Rotate(new Vector3(0, horizontalInput * rotationSpeed, 0));
             if (horizontalInput < 0)
             {
                 _animator.SetBool("rotLeft", true);
