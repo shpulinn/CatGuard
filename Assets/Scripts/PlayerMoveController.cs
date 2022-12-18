@@ -30,6 +30,22 @@ public class PlayerMoveController : MonoBehaviour
         if (horizontalInput != 0)
         {
             transform.Rotate(new Vector3(0, horizontalInput, 0));
+            if (horizontalInput < 0)
+            {
+                _animator.SetBool("rotLeft", true);
+                _animator.SetBool("rotRight", false);
+            }
+
+            if (horizontalInput > 0)
+            {
+                _animator.SetBool("rotRight", true);
+                _animator.SetBool("rotLeft", false);
+            }
+        }
+        else
+        {
+            _animator.SetBool("rotRight", false);
+            _animator.SetBool("rotLeft", false);
         }
     }
 }
