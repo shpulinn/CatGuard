@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,5 +49,20 @@ public class PlayerMoveController : MonoBehaviour
             _animator.SetBool("rotRight", false);
             _animator.SetBool("rotLeft", false);
         }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Jump();
+        }
+    }
+
+    private void Jump()
+    {
+        _animator.SetTrigger("Jump");
+    }
+
+    private void LateUpdate()
+    {
+        _animator.ResetTrigger("Jump");
     }
 }
